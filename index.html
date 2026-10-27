@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Просто йоги — студия йоги в Петербурге</title>
+<meta name="description" content="Студия йоги на Загородном проспекте. Небольшие группы, спокойный темп, первое занятие — пробное.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6;
+  --paper-2:#ebe4d6;
+  --ink:#2a2622;
+  --muted:#7a7066;
+  --line:#d3c9b8;
+  --accent:#b4572f;
+  --serif:'Prata',Georgia,serif;
+  --sans:'Golos Text',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08}
+.num{font-family:var(--sans);font-feature-settings:"tnum"}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(244,239,230,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:22px;text-decoration:none}
+.logo i{font-style:normal;color:var(--accent)}
+nav{display:flex;gap:28px;font-size:15px}
+nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);padding:14px 26px;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;font-family:var(--sans);transition:background .2s}
+.btn:hover{background:var(--accent)}
+.btn.line{background:none;color:var(--ink);border:1px solid var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--paper)}
+
+/* hero */
+.hero{padding:88px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(46px,7vw,92px);margin:20px 0 28px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{max-width:460px;color:var(--muted);font-size:19px}
+.hero .cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.hero .facts{display:flex;gap:36px;margin-top:52px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.hero .facts b{display:block;font:400 28px var(--serif);color:var(--ink)}
+.enso{width:100%;max-width:420px;justify-self:center;display:block}
+.enso .ring{fill:none;stroke:var(--ink);stroke-linecap:round;stroke-width:15;stroke-dasharray:820 120;transform-origin:50% 50%;animation:turn 40s linear infinite}
+.enso .dot{fill:var(--accent);transform-origin:50% 50%;animation:breath 8s ease-in-out infinite}
+.enso text{font:500 12px var(--sans);letter-spacing:.16em;fill:var(--muted);text-anchor:middle;text-transform:uppercase}
+@keyframes turn{to{transform:rotate(360deg)}}
+@keyframes breath{0%,100%{transform:scale(.7)}50%{transform:scale(1.05)}}
+
+/* sections */
+section{padding:96px 0;border-top:1px solid var(--line)}
+.head{display:grid;grid-template-columns:1fr 2fr;gap:56px;margin-bottom:56px}
+.head h2{font-size:clamp(34px,4.4vw,52px)}
+.head p{color:var(--muted);max-width:520px;align-self:end}
+
+/* about */
+.about .cols{display:grid;grid-template-columns:1fr 2fr;gap:56px}
+.about .big{font:400 clamp(24px,3vw,34px)/1.3 var(--serif)}
+.about .big em{font-style:normal;color:var(--accent)}
+.about .rules{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.about .rules div{padding:18px 0;border-top:1px solid var(--line);color:var(--muted);font-size:16px}
+.about .rules b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+
+/* classes */
+.classes li{list-style:none;display:grid;grid-template-columns:56px 1.2fr 2fr auto;gap:24px;align-items:baseline;padding:26px 0;border-top:1px solid var(--line)}
+.classes li:last-child{border-bottom:1px solid var(--line)}
+.classes .n{color:var(--accent);font-size:14px}
+.classes h3{font-size:28px}
+.classes p{color:var(--muted);font-size:16px}
+.classes .lvl{font-size:13px;color:var(--muted);white-space:nowrap}
+
+/* schedule */
+.sched{background:var(--paper-2)}
+.tabs{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.tabs button{font:500 14px var(--sans);padding:9px 18px;background:none;border:1px solid var(--line);color:var(--muted);cursor:pointer;transition:.2s}
+.tabs button:hover{color:var(--ink);border-color:var(--ink)}
+.tabs button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rows{min-height:260px}
+.row{display:grid;grid-template-columns:110px 1fr 200px 150px;gap:20px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row .t{font:400 26px var(--sans);font-feature-settings:"tnum"}
+.row .c{font:400 22px var(--serif)}
+.row .w{color:var(--muted);font-size:15px}
+.row a{font-size:14px;font-weight:500;color:var(--accent);text-decoration:none;justify-self:end;border-bottom:1px solid currentColor}
+.note{margin-top:20px;font-size:14px;color:var(--muted)}
+
+/* teachers */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.person .ph{aspect-ratio:4/5;margin-bottom:18px;position:relative;overflow:hidden}
+.person:nth-child(1) .ph{background:#c9b79c}
+.person:nth-child(2) .ph{background:#a9a58a}
+.person:nth-child(3) .ph{background:#c58e72}
+.person .ph svg{position:absolute;inset:0;width:100%;height:100%}
+.person h3{font-size:24px;margin-bottom:4px}
+.person span{font-size:14px;color:var(--accent)}
+.person p{color:var(--muted);font-size:15px;margin-top:8px}
+
+/* prices */
+.prices{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.price{padding:28px 24px 32px 0;border-right:1px solid var(--line)}
+.price+.price{padding-left:24px}
+.price:last-child{border-right:0}
+.price .nm{font-size:14px;color:var(--muted);min-height:44px}
+.price .v{font:400 40px var(--serif);margin:10px 0 6px}
+.price .v small{font:400 16px var(--sans);color:var(--muted)}
+.price p{font-size:14px;color:var(--muted)}
+.price.hot .v{color:var(--accent)}
+
+/* first visit */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;counter-reset:s}
+.steps div{counter-increment:s}
+.steps div::before{content:"0" counter(s);font:400 14px var(--sans);color:var(--accent);display:block;margin-bottom:12px}
+.steps h3{font-size:24px;margin-bottom:10px}
+.steps p{color:var(--muted);font-size:16px}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper);border-top:0}
+.contact .eyebrow{color:#a99f91}
+.contact h2{font-size:clamp(36px,5vw,60px);margin:14px 0 28px}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:72px}
+.contact dl{display:grid;grid-template-columns:110px 1fr;gap:0;font-size:16px}
+.contact dt,.contact dd{padding:14px 0;border-top:1px solid #4a443d}
+.contact dt{color:#a99f91}
+form{display:grid;gap:14px;align-content:start}
+label{font-size:13px;color:#a99f91;display:grid;gap:6px}
+input,select{font:400 16px var(--sans);background:none;border:0;border-bottom:1px solid #6b6359;color:var(--paper);padding:8px 0;outline:0;border-radius:0}
+input:focus,select:focus{border-color:var(--accent)}
+select option{color:#000}
+form .btn{background:var(--accent);margin-top:12px}
+form .btn:hover{background:var(--paper);color:var(--ink)}
+.ok{color:#d8a98f;font-size:15px;min-height:24px}
+footer{background:var(--ink);color:#8b8175;font-size:13px;padding:0 0 32px}
+footer .wrap{border-top:1px solid #4a443d;padding-top:20px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.credit{display:flex;align-items:center;justify-content:center;gap:14px;background:#000;color:#cfc8bd;text-decoration:none;padding:10px 24px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:color .2s}
+.credit img{display:block;width:56px;height:56px;object-fit:cover}
+.credit b{font-weight:600;color:#fff;letter-spacing:.24em}
+.credit:hover{color:#fff}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{display:none}
+  .hero .wrap,.head,.about .cols,.contact .grid{grid-template-columns:1fr;gap:36px}
+  .enso{max-width:260px;justify-self:start;order:-1}
+  .classes li{grid-template-columns:36px 1fr;gap:6px 14px}
+  .classes p,.classes .lvl{grid-column:2}
+  .row{grid-template-columns:80px 1fr;gap:4px 16px}
+  .row .w,.row a{grid-column:2;justify-self:start}
+  .team{grid-template-columns:1fr 1fr}
+  .prices{grid-template-columns:1fr 1fr}
+  .price{border-bottom:1px solid var(--line)}
+  .steps{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  body{font-size:16px}
+  .hero{padding:48px 0 64px}
+  section{padding:64px 0}
+  .hero .facts{gap:22px}
+  .about .rules{grid-template-columns:1fr}
+  .team{grid-template-columns:1fr}
+  .prices{grid-template-columns:1fr}
+  .price,.price+.price{padding:24px 0;border-right:0}
+}
+@media(prefers-reduced-motion:reduce){.enso .ring,.enso .dot{animation:none}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Просто <i>йоги</i></a>
+    <nav>
+      <a href="#about">О студии</a>
+      <a href="#classes">Практики</a>
+      <a href="#schedule">Расписание</a>
+      <a href="#team">Преподаватели</a>
+      <a href="#prices">Цены</a>
+    </nav>
+    <a class="btn" href="#contact">Записаться</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Студия йоги · Загородный проспект</div>
+      <h1>Йога без <em>лишних</em> слов</h1>
+      <p class="lead">Небольшие группы, тёплый зал и спокойный темп. Приходите в любой одежде — коврик и плед мы дадим.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Пробное занятие — 500&nbsp;₽</a>
+        <a class="btn line" href="#schedule">Смотреть расписание</a>
+      </div>
+      <div class="facts">
+        <div><b class="num">10</b>человек в группе</div>
+        <div><b class="num">4,9</b>рейтинг на картах</div>
+        <div><b class="num">до 22:00</b>работаем ежедневно</div>
+      </div>
+    </div>
+    <svg class="enso" viewBox="0 0 400 400" role="img" aria-label="Дышащий круг: вдох и выдох">
+      <circle class="dot" cx="200" cy="200" r="78"/>
+      <circle class="ring" cx="200" cy="200" r="150"/>
+      <text x="200" y="388">вдох — выдох</text>
+    </svg>
+  </div>
+</div>
+
+<section id="about" class="about">
+  <div class="wrap cols">
+    <div class="eyebrow">О студии</div>
+    <div>
+      <p class="big rv">Мы не обещаем шпагат за месяц. Мы обещаем час в неделю, когда <em>телефон лежит в шкафчике</em>, а дыхание — единственное, что нужно держать в голове.</p>
+      <div class="rules rv">
+        <div><b>Для новичков</b>Объясняем каждую позу и не торопим. Спрашивать можно всегда.</div>
+        <div><b>Маленькие группы</b>Преподаватель видит каждого и поправляет, если нужно.</div>
+        <div><b>Тишина после</b>Шавасана — не пять минут «для галочки», а полноценная часть занятия.</div>
+        <div><b>Массаж рядом</b>После практики можно записаться на массаж к нашим мастерам.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="classes" class="classes">
+  <div class="wrap">
+    <div class="head">
+      <h2>Практики</h2>
+      <p>Шесть форматов — от мягкой растяжки до гамаков и гвоздетерапии. Не знаете, с чего начать, — выбирайте хатху.</p>
+    </div>
+    <ul>
+      <li class="rv"><span class="n num">01</span><h3>Хатха</h3><p>Классика: асаны, дыхание, расслабление. Медленно и внимательно.</p><span class="lvl">для всех</span></li>
+      <li class="rv"><span class="n num">02</span><h3>Виньяса</h3><p>Движение связано с дыханием, позы перетекают одна в другую. Согреет и взбодрит.</p><span class="lvl">с опытом</span></li>
+      <li class="rv"><span class="n num">03</span><h3>Мягкая спина</h3><p>Работа с позвоночником и шеей. Для тех, кто много сидит за компьютером.</p><span class="lvl">для всех</span></li>
+      <li class="rv"><span class="n num">04</span><h3>Йога-нидра</h3><p>Глубокое расслабление лёжа. Час, после которого ощущается как восемь часов сна.</p><span class="lvl">для всех</span></li>
+      <li class="rv"><span class="n num">05</span><h3>Йога в гамаках</h3><p>Асаны с опорой на гамак: вытягивает позвоночник, снимает нагрузку с суставов.</p><span class="lvl">для всех</span></li>
+      <li class="rv"><span class="n num">06</span><h3>Гвоздетерапия</h3><p>Трансформационная практика на гвоздестоянии, индивидуально или в группе. Начинайте с пробного.</p><span class="lvl">индивидуально / группа</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="schedule" class="sched">
+  <div class="wrap">
+    <div class="head">
+      <h2>Расписание</h2>
+      <p>Запись обязательна — мест немного. Отменить можно за 4 часа до начала.</p>
+    </div>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="rows" id="rows"></div>
+    <p class="note">Расписание — пример. Актуальное уточняйте у администратора.</p>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="head">
+      <h2>Преподаватели</h2>
+      <p>Все — практикующие, с сертификатами и опытом работы с новичками.</p>
+    </div>
+    <div class="team">
+      <div class="person rv">
+        <div class="ph"><svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMax slice"><circle cx="100" cy="95" r="30" fill="#f4efe6" opacity=".55"/><path d="M30 250c0-62 32-100 70-100s70 38 70 100z" fill="#f4efe6" opacity=".55"/></svg></div>
+        <h3>Анна</h3><span>Хатха · Йога-нидра</span>
+        <p>Практикует 12 лет. Говорит тихо, но её слышно.</p>
+      </div>
+      <div class="person rv">
+        <div class="ph"><svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMax slice"><circle cx="100" cy="95" r="30" fill="#f4efe6" opacity=".55"/><path d="M30 250c0-62 32-100 70-100s70 38 70 100z" fill="#f4efe6" opacity=".55"/></svg></div>
+        <h3>Михаил</h3><span>Виньяса</span>
+        <p>Бывший спортсмен. Учит двигаться без травм и без пафоса.</p>
+      </div>
+      <div class="person rv">
+        <div class="ph"><svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMax slice"><circle cx="100" cy="95" r="30" fill="#f4efe6" opacity=".55"/><path d="M30 250c0-62 32-100 70-100s70 38 70 100z" fill="#f4efe6" opacity=".55"/></svg></div>
+        <h3>Елена</h3><span>Мягкая спина · Хатха</span>
+        <p>Реабилитолог по образованию. Знает, где болит, и почему.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="wrap">
+    <div class="head">
+      <h2>Цены</h2>
+      <p>Абонементы действуют два месяца, занятия можно переносить. Цены — пример.</p>
+    </div>
+    <div class="prices">
+      <div class="price hot"><div class="nm">Пробное занятие</div><div class="v num">500 <small>₽</small></div><p>Один раз, любая группа</p></div>
+      <div class="price"><div class="nm">Разовое</div><div class="v num">900 <small>₽</small></div><p>Одно занятие</p></div>
+      <div class="price"><div class="nm">Абонемент · 4 занятия</div><div class="v num">3 200 <small>₽</small></div><p>800 ₽ за занятие</p></div>
+      <div class="price"><div class="nm">Абонемент · 8 занятий</div><div class="v num">5 600 <small>₽</small></div><p>700 ₽ за занятие</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="head">
+      <h2>Первый раз</h2>
+      <p>Всё, что нужно знать, чтобы прийти без волнения.</p>
+    </div>
+    <div class="steps">
+      <div class="rv"><h3>Запишитесь</h3><p>Выберите время в расписании и оставьте телефон — мы подтвердим запись сообщением.</p></div>
+      <div class="rv"><h3>Приходите за 10 минут</h3><p>Переоденьтесь, возьмите коврик, выпейте воды. Есть за 2 часа до занятия не нужно.</p></div>
+      <div class="rv"><h3>Просто дышите</h3><p>Делайте в своём темпе. Что-то не получается — это нормально, так и задумано.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Контакты</div>
+      <h2>Приходите<br>попробовать</h2>
+      <dl>
+        <dt>Адрес</dt><dd>Санкт-Петербург, Загородный пр., 37/70Д</dd>
+        <dt>Время</dt><dd class="num">ежедневно, 8:00–22:00</dd>
+        <dt>Телефон</dt><dd class="num">+7 (000) 000-00-00</dd>
+        <dt>Мессенджер</dt><dd>@prosto_yogi</dd>
+      </dl>
+    </div>
+    <form id="form">
+      <label>Имя<input name="name" required autocomplete="given-name"></label>
+      <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7"></label>
+      <label>Что интересно
+        <select name="kind"><option>Хатха</option><option>Виньяса</option><option>Мягкая спина</option><option>Йога-нидра</option><option>Пока не знаю</option></select>
+      </label>
+      <button class="btn" type="submit">Записаться на пробное</button>
+      <div class="ok" id="ok" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© Просто йоги</span><span>Демонстрационная страница</span></div>
+</footer>
+<a class="credit" href="https://mindfold-studio.vercel.app" target="_blank" rel="noopener">
+  <img src="mindfold.webp" alt="Mindfold Studio" width="56" height="56">
+  <span>Сделано студией <b>Mindfold</b></span>
+</a>
+
+<script>
+const data={
+  'Пн':[['08:00','Хатха','Анна','6 мест'],['19:00','Мягкая спина','Елена','4 места'],['20:30','Йога-нидра','Анна','8 мест']],
+  'Вт':[['09:30','Виньяса','Михаил','5 мест'],['19:00','Хатха','Анна','3 места']],
+  'Ср':[['08:00','Мягкая спина','Елена','7 мест'],['19:00','Виньяса','Михаил','2 места'],['20:30','Хатха','Елена','6 мест']],
+  'Чт':[['09:30','Хатха','Анна','5 мест'],['19:00','Мягкая спина','Елена','4 места']],
+  'Пт':[['08:00','Виньяса','Михаил','6 мест'],['19:00','Йога-нидра','Анна','9 мест']],
+  'Сб':[['10:00','Хатха','Анна','4 места'],['11:30','Виньяса','Михаил','3 места']],
+  'Вс':[['11:00','Мягкая спина','Елена','7 мест'],['18:00','Йога-нидра','Анна','10 мест']]
+};
+const tabs=document.getElementById('tabs'),rows=document.getElementById('rows');
+const today=(new Date().getDay()+6)%7;
+const days=Object.keys(data);
+function show(d){
+  [...tabs.children].forEach(b=>b.classList.toggle('on',b.textContent===d));
+  rows.innerHTML=data[d].map(r=>`<div class="row"><div class="t">${r[0]}</div><div class="c">${r[1]}</div><div class="w">${r[2]} · ${r[3]}</div><a href="#contact">Записаться</a></div>`).join('');
+}
+days.forEach(d=>{const b=document.createElement('button');b.textContent=d;b.setAttribute('role','tab');b.onclick=()=>show(d);tabs.appendChild(b)});
+show(days[today]);
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('ok').textContent='Спасибо, '+e.target.name.value+'! Это демо-форма — данные никуда не отправлены.';
+  e.target.reset();
+});
+</script>
+</body>
+</html>
